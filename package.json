@@ -1,0 +1,26 @@
+{
+  "name": "passwordmanager",
+  "version": "1.0.0",
+  "description": "Its a online Password Manager build by Kiran mainali",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiranMainaliOfficial/PasswordManager.git"
+  },
+  "keywords": [
+    "password",
+    "manager"
+  ],
+  "author": "Kiran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KiranMainaliOfficial/PasswordManager/issues"
+  },
+  "homepage": "https://github.com/KiranMainaliOfficial/PasswordManager#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
