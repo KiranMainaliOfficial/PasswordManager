@@ -36,3 +36,11 @@
             document.querySelector('.form-container').style.transform = 'translateY(0)';
             document.querySelector('.form-container').style.opacity = '1';
         }, 100);
+
+const message = document.querySelector(".message");
+message.style.transform = `translateX(0%)`
+setTimeout(() => {
+    // message.style.display = "none";
+    message.style.opacity = 0;
+    message.style.transform = `translateX(100%)`
+}, 3000);

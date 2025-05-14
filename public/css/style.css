@@ -170,6 +170,7 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(42, 92, 130, 0.2);
     margin-top: 1rem;
+    text-decoration: none;
 }
 
 .cta-button:hover {

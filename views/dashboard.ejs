@@ -1,9 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('components/__head.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CipherGuard Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-    <h1>dashboard</h1>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <a href="/"><i class="fas fa-shield-alt"></i>
+            </div>
+            <h2>CipherGuard</h2></a>
+        </div>
+        
+        <div class="nav-item">
+            <i class="fas fa-lock"></i>
+            All Passwords
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-plus-circle"></i>
+            Add New
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-shield-alt"></i>
+            Security Center
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-cog"></i>
+            Settings
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Password Vault</h1>
+            <input type="text" class="search-bar" placeholder="Search passwords...">
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card animated-card">
+                <div class="stat-value">147</div>
+                <div class="stat-label">Stored Passwords</div>
+            </div>
+            <div class="stat-card animated-card">
+                <div class="stat-value">92%</div>
+                <div class="stat-label">Security Score</div>
+                <div class="security-meter">
+                    <div class="security-progress" style="width: 92%"></div>
+                </div>
+            </div>
+            <div class="stat-card animated-card">
+                <div class="stat-value">192-bit</div>
+                <div class="stat-label">Encryption Level</div>
+            </div>
+        </div>
+
+        <!-- Password List -->
+        <div class="password-list animated-card">
+            <div class="password-item">
+                <div class="password-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div style="flex: 1">
+                    <div class="password-name">Google Account</div>
+                    <div class="password-url">accounts.google.com</div>
+                </div>
+                <div class="security-meter">
+                    <div class="security-progress" style="width: 85%"></div>
+                </div>
+                <div class="password-actions">
+                    <button class="action-btn" style="margin-left: 1rem">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="password-item">
+                <div class="password-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div style="flex: 1">
+                    <div class="password-name">Google Account</div>
+                    <div class="password-url">accounts.google.com</div>
+                </div>
+                <div class="security-meter">
+                    <div class="security-progress" style="width: 85%"></div>
+                </div>
+                <div class="password-actions">
+                    <button class="action-btn" style="margin-left: 1rem">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="password-item">
+                <div class="password-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div style="flex: 1">
+                    <div class="password-name">Google Account</div>
+                    <div class="password-url">accounts.google.com</div>
+                </div>
+                <div class="security-meter">
+                    <div class="security-progress" style="width: 85%"></div>
+                </div>
+                <div class="password-actions">
+                    <button class="action-btn" style="margin-left: 1rem">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="password-item">
+                <div class="password-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div style="flex: 1">
+                    <div class="password-name">Google Account</div>
+                    <div class="password-url">accounts.google.com</div>
+                </div>
+                <div class="security-meter">
+                    <div class="security-progress" style="width: 85%"></div>
+                </div>
+                <div class="password-actions">
+                    <button class="action-btn" style="margin-left: 1rem">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- More password items... -->
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <div class="action-btn">
+                <i class="fas fa-key fa-2x"></i>
+                <div>Generate Password</div>
+            </div>
+            <div class="action-btn">
+                <i class="fas fa-shield-alt fa-2x"></i>
+                <div>Security Audit</div>
+            </div>
+            <div class="action-btn">
+                <i class="fas fa-file-export fa-2x"></i>
+                <div>Export Vault</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dynamic Security Score Update
+        const securityProgress = document.querySelectorAll('.security-progress');
+        securityProgress.forEach(progress => {
+            const width = progress.style.width;
+            progress.style.width = '0';
+            setTimeout(() => {
+                progress.style.width = width;
+            }, 500);
+        });
+
+        // Password Generator
+        document.querySelector('.action-btn').addEventListener('click', function() {
+            // Add password generation logic
+        });
+
+        // Responsive Sidebar
+        window.addEventListener('resize', function() {
+            if(window.innerWidth < 768) {
+                document.querySelector('.sidebar').style.transform = 'translateX(-100%)';
+            } else {
+                document.querySelector('.sidebar').style.transform = 'translateX(0)';
+            }
+        });
+    </script>
 </body>
 </html>

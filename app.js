@@ -26,15 +26,20 @@ app.get('/', (req, res) => {
 // login page
 app.get('/login', (req, res) => {
     title = "login/Register"
-    res.render("form", { title });
+    hasErr = false;
+    res.render("form", { title ,hasErr});
 })
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     const userEmail = await userModel.countDocuments({ email });
     if (userEmail > 0) {
-        res.send("already exists");
+        hasErr = true;
+        messages = "Email Exists!";
+        res.render("form",{hasErr,messages});
     } else {
         bcrypt.hash(password, 10, function (err, hash) {
+            console.log(hash);
+            
             userModel.create({
                 name,
                 email,
@@ -63,14 +68,18 @@ app.post("/login",async(req,res)=>{
                 res.redirect("/dashboard");
             }else{
             // res.redirect("/login");
-            res.send("password didnot match");
+            hasErr = true;
+            messages = "Invalid Credentials!";
+            res.render("form",{hasErr,messages});
         }
 
         })
         
     }catch(e){
         // res.redirect("/login")
-        res.send("email donot match")
+        hasErr = true;
+        messages = "Invalid Credentials!";
+        res.render("form",{hasErr,messages});
 
     }
 })
@@ -85,7 +94,7 @@ app.get('/dashboard',(req,res)=>{
 
 // send 404 pages
 app.use((req, res) => {
-  res.status(404).send('404 Not Found');
+  res.status(404).render('error');
 });
 // listening the port
 app.listen(2000, (req, res) => {

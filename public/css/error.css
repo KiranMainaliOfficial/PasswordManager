@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.error-code {
+    font-size: 15rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #4e54c8, #6a6fcb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 50px rgba(78, 84, 200, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+.message {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    color: #a0a3bd;
+}
+
+.home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #4e54c8, #6a6fcb);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(78, 84, 200, 0.3);
+}
+
+.home-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.home-btn:hover::after {
+    left: 50%;
+}
+
+.vault-illustration {
+    width: 300px;
+    margin: 2rem auto;
+    filter: drop-shadow(0 0 30px rgba(78, 84, 200, 0.3));
+    animation: shake 4s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+/* Particles */
+#particles-404 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
