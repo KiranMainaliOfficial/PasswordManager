@@ -7,7 +7,7 @@ mongoose.connect("mongodb://localhost:27017/pwdManager")
     .catch((e)=>{
         console.log("Database connection Failed!!");
         
-    })
+    });
 
 
 
